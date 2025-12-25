@@ -1,0 +1,263 @@
+@media only screen and (max-width: 1380px) {
+    body {
+        width: auto;
+    }
+
+    .top-part {
+        width: 80%;
+    }
+
+    .main-part {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 100px;
+    }
+
+    .right-part {
+        height: 650px;
+    }
+}
+
+@media only screen and (max-width: 1330px) {
+    .top-part {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .left-part {
+        display: flex;
+        align-items: center;
+    }
+
+    .main-div {
+        display: flex;
+        flex-direction: column;
+        background-size: auto;
+        justify-content: center;
+        align-items: center;
+        width: 510px;
+        height: 100%;
+    }
+
+    .main-div-left {
+        width: 100px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-div-left>h1{
+        font-size: large;
+        text-align: center;
+    }
+
+    .main-div-right>p{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    /* .loading-main-div {} */
+
+    .daily-forecast-part {
+        margin-top: 50px;
+    }
+
+    .daily-forecast-holder {
+        gap: 5px;
+    }
+
+    .forecast-info {
+        display: flex;
+        flex-wrap: wrap;
+        align-self: center;
+        width: 510px;
+    }
+
+    .info-container {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    .daily-forecast-part>h1{
+        display: flex;
+        justify-self: center;
+    }
+
+    .daily-forecast-holder {
+        overflow-x: scroll;
+        max-width: 800px;
+        
+        /*max-width: 800px;*/
+        /*overflow-anchor: auto;*/
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .daily-forecast-holder {
+        max-width: 750px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .daily-forecast-holder {
+        max-width: 730px;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    .daily-forecast-holder {
+        max-width: 700px;
+    }
+}
+
+@media only screen and (max-width: 710px) {
+    .daily-forecast-holder {
+        max-width: 680px;
+    }
+}
+
+@media only screen and (max-width: 690px) {
+    .daily-forecast-holder {
+        max-width: 650px;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .daily-forecast-holder {
+        max-width: 620px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .daily-forecast-holder {
+        max-width: 590px;
+    }
+
+    .no-internet-connection>h1,p{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .daily-forecast-holder {
+        max-width: 550px;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    #search {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .daily-forecast-holder {
+        max-width: 520px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .top-part {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .main-div {
+        width: 400px;
+    }
+
+    .search-results {
+        width: inherit;
+    }
+
+    .forecast-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .daily-forecast-holder {
+        max-width: 490px;
+    }
+
+    .info-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    #search {
+        width: 200px;
+    }
+
+    .daily-forecast-holder {
+        max-width: 440px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .daily-forecast-holder {
+        max-width: 420px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .daily-forecast-holder {
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .main-div {
+        width: 380px;
+    }
+
+    .info-container {
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .daily-forecast-holder {
+        max-width: 380px;
+    }
+
+    .dropdown-menu-active {
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .main-div {
+        width: 340px;
+    }
+
+    .info-container {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 385px) {
+    .daily-forecast-holder {
+        max-width: 360px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #search {
+        width: 160px;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    .daily-forecast-holder {
+        max-width: 340px;
+    }
+}

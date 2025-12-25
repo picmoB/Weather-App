@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="html-doc">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7th Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+</head>
+
+<body class="body-doc">
+    <main class="container">
+        <header class="top-part">
+            <img src="assets/images/logo.svg" alt="logo" id="topPartImg">
+            <div class="dropdown-menu-main-holder">
+                <div class="dropdown-menu">
+                    <img src="assets/images/icon-units.svg" alt="units">
+                    Units
+                    <button type="button" id="units"></button>
+                    <img src="assets/images/icon-dropdown.svg" alt="dropdown">
+                </div>
+                <div class="dropdown-menu-active" id="unitsMenu">
+                    <button class="switch-measurement" onclick="fetchAPI()">Switch to imperial</button>
+                    <div class="measurement-holder">
+                        <h1>Temperature</h1>
+                        <div class="measurement-info active">
+                            <p>Celsius(°C)</p>
+                            <img src="assets/images/icon-checkmark.svg" alt="icon-img">
+                        </div>
+                        <div class="measurement-info">
+                            <p>Fahrenheit(°F)</p>
+                            <img src="assets/images/icon-checkmark.svg" alt="icon-img" hidden>
+                        </div>
+                    </div>
+                    <span class="line"></span>
+                    <div class="measurement-holder">
+                        <h1>Wind speed</h1>
+                        <div class="measurement-info active">
+                            <p>km/h</p>
+                            <img src="assets/images/icon-checkmark.svg" alt="icon-img">
+                        </div>
+                        <div class="measurement-info">
+                            <p>mph</p>
+                            <img src="assets/images/icon-checkmark.svg" alt="icon-img" hidden>
+                        </div>
+                    </div>
+                    <span class="line"></span>
+                    <div class="measurement-holder">
+                        <h1>Precipitation</h1>
+                        <div class="measurement-info active">
+                            <p>Milimeters (mm)</p>
+                            <img src="assets/images/icon-checkmark.svg" alt="icon-img">
+                        </div>
+                        <div class="measurement-info">
+                            <p>Inches (in)</p>
+                            <img src="assets/images/icon-checkmark.svg" alt="icon-img" hidden>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="search-part">
+            <h1>How's the sky looking today?</h1>
+            <div class="search-flexbox">
+                <div id="mic-input">
+                    <img src="assets/images/microphone-svgrepo.svg" alt="icon-img" class="mic-icon-color">
+                </div>
+                <div class="search-input-div">
+                    <img src="assets/images/icon-search.svg" alt="search">
+                    <input type="text" id="search" placeholder="Search for a place..." autocomplete="off">
+                    <ul id="search-results" class="search-results"></ul>
+                </div>
+                <button type="button" id="searchBtn">Search</button>
+            </div>
+        </section>
+
+        <section class="main-part">
+            <div class="left-part">
+                <div class="main-div">
+                    <div class="loading-main-div" style="display: none;">
+                        <img src="assets/images/icon-loading.svg" alt="icon-img" id="loadingImg" class="spin">
+                        Loading...
+                    </div>
+                    <div class="main-div-left">
+                        <h1><span class="location">Location</span>,&nbsp;<span class="country">Country</span></h1>
+                        <h1><span class="day">Day</span>,&nbsp;<span class="month">Month</span>&nbsp;<span class="date">Date</span>,&nbsp;<span class="year">Year</span></h1>                                                                                                                
+                    </div>
+                    <div class="main-div-right">
+                        <img src="assets/images/icon-sunny.webp" alt="icon-img" id="currentImg">
+                        <p class="degrees">20°</p> <!-- Hold 'Alt' key and type '0 1 7 6' for ° symbol -->
+                    </div>
+                </div>
+                <div class="forecast-info">
+                    <div class="info-container">
+                        <p>Feels like</p>
+                        <span class="info-line" style="display: none;"></span>
+                        <p class="info-txt" id="fl-degrees">18°</p>
+                    </div>
+                    <div class="info-container">
+                        <p>Humidity</p>
+                        <span class="info-line" style="display: none;"></span>
+                        <p class="info-txt" id="humidity">46%</p>
+                    </div>
+                    <div class="info-container">
+                        <p>Wind</p>
+                        <span class="info-line" style="display: none;"></span>
+                        <p class="info-txt" id="wind-speed">14 km/h</p>
+                    </div>
+                    <div class="info-container">
+                        <p>Precipitation</p>
+                        <span class="info-line" style="display: none;"></span>
+                        <p class="info-txt" id="precipitation">0 mm</p>
+                    </div>
+                </div>
+                <div class="daily-forecast-part">
+                    <h1>Daily forecast</h1>
+                    <div class="daily-forecast-holder">
+                        <div class="daily-info">
+                            <div class="daily-info-content">
+                                <h1>Tue</h1>
+                                <img src="assets/images/icon-rain.webp" alt="icon-img" class="weather-icon">
+                                <div class="forecast-flexbox">
+                                    <p class="max-deg">20°</p>
+                                    <p class="min-deg">15°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="daily-info">
+                            <div class="daily-info-content">
+                                <h1>Wed</h1>
+                                <img src="assets/images/icon-drizzle.webp" alt="icon-img" class="weather-icon">
+                                <div class="forecast-flexbox">
+                                    <p class="max-deg">22°</p>
+                                    <p class="min-deg">12°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="daily-info">
+                            <div class="daily-info-content">
+                                <h1>Thu</h1>
+                                <img src="assets/images/icon-sunny.webp" alt="icon-img" class="weather-icon">
+                                <div class="forecast-flexbox">
+                                    <p class="max-deg">24°</p>
+                                    <p class="min-deg">14°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="daily-info">
+                            <div class="daily-info-content">
+                                <h1>Fri</h1>
+                                <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="weather-icon">
+                                <div class="forecast-flexbox">
+                                    <p class="max-deg">25°</p>
+                                    <p class="min-deg">13°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="daily-info">
+                            <div class="daily-info-content">
+                                <h1>Sat</h1>
+                                <img src="assets/images/icon-storm.webp" alt="icon-img" class="weather-icon">
+                                <div class="forecast-flexbox">
+                                    <p class="max-deg">20°</p>
+                                    <p class="min-deg">12°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="daily-info">
+                            <div class="daily-info-content">
+                                <h1>Sun</h1>
+                                <img src="assets/images/icon-snow.webp" alt="icon-img" class="weather-icon">
+                                <div class="forecast-flexbox">
+                                    <p class="max-deg">19°</p>
+                                    <p class="min-deg">10°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="daily-info">
+                            <div class="daily-info-content">
+                                <h1>Mon</h1>
+                                <img src="assets/images/icon-fog.webp" alt="icon-img" class="weather-icon">
+                                <div class="forecast-flexbox">
+                                    <p class="max-deg">23°</p>
+                                    <p class="min-deg">16°</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-part">
+                <div class="top-section">
+                    <h1>Hourly forecast</h1>
+                    <div class="dropdown-menu-main-holder">
+                        <div class="dropdown-menu" id="dropdownMenuDay">
+                            <button type="button" id="day"></button>
+                            <p>Friday</p>
+                            <img src="assets/images/icon-dropdown.svg">
+                        </div>
+                        <div class="dropdown-menu-active" id="dayMenu">
+                            <div class="day-holder" id="1">Monday</div>
+                            <div class="day-holder" id="2">Tuesday</div>
+                            <div class="day-holder" id="3">Wednesday</div>
+                            <div class="day-holder" id="4">Thursday</div>
+                            <div class="day-holder active" id="5">Friday</div>
+                            <div class="day-holder" id="6">Saturday</div>
+                            <div class="day-holder" id="7">Sunday</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="hourly-forecast-holder">
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                    <div class="hourly-info">
+                        <div class="hourly-flexbox">
+                            <img src="assets/images/icon-partly-cloudy.webp" alt="icon-img" class="hourly-icon">
+                            <p class="hourly-text">Hour</p>
+                        </div>
+                        <p><span class="hourly-degree">20°</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="no-internet-connection ease-in" style="display: none;">
+            <img src="assets/images/icon-error.svg" alt="icon-img">
+            <h1>Something went wrong</h1>
+            <p>We couldn't connect to the server (API error). Please try again in a few moments.</p>
+            <button type="button" id="retryBtn"><!--<img src="assets/images/icon-retry.svg">-->Retry</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
